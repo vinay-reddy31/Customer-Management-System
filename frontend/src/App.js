@@ -24,7 +24,7 @@ class CustomerManagementSystem extends Component {
 
   fetchCustomers = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/customers');
+      const response = await fetch('https://customer-management-system-backend-twg1.onrender.com/api/customers');
       const data = await response.json();
       this.setState({ customers: data });
     } catch (error) {
@@ -53,7 +53,7 @@ class CustomerManagementSystem extends Component {
       };
   
       const endpoint = editingId ? `/${editingId}` : '/';
-      const response = await fetch(`http://localhost:5000/api/customers${endpoint}`, requestOptions);
+      const response = await fetch(`https://customer-management-system-backend-twg1.onrender.com/api/customers${endpoint}`, requestOptions);
   
       if (response.ok) {
         this.fetchCustomers();
@@ -72,7 +72,7 @@ class CustomerManagementSystem extends Component {
 
   handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this customer?')) {
-      const response = await fetch(`http://localhost:5000/api/customers/${id}`, {
+      const response = await fetch(`https://customer-management-system-backend-twg1.onrender.com/api/customers/${id}`, {
         method: 'DELETE',
       });
 
